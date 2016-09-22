@@ -3,7 +3,7 @@ FROM continuumio/anaconda
 
 MAINTAINER Amir Szitenberg <amir@adssc.org>
 
-RUN pip install reprophylo ete2 cloud dendropy
+RUN pip install reprophylo ete2 cloud dendropy biom-format
 RUN apt-get update
 RUN apt-get -y install xvfb build-essential gfortran wget gzip unzip
 RUN conda install -y -c r r-ape=3.2.0 r-plyr=1.8 \
@@ -22,22 +22,22 @@ RUN conda create -y -n qiime1 python=2.7 qiime matplotlib=1.4.3 mock nose -c bio
 RUN wget \
   https://github.com/matsen/pplacer/releases/download/v1.1.alpha18/pplacer-linux-v1.1.alpha18-2-gcb55169.zip && \
   unzip pplacer-linux-v1.1.alpha18-2-gcb55169.zip && \
-  rm pplacer-linux-v1.1.alpha18-2-gcb55169.zip&& \
-  mv pplacer-linux-v1.1.alpha18-2-gcb55169 /usr/bin/. && \
-  chmod a+x /usr/bin/pplacer-linux-v1.1.alpha18-2-gcb55169/* && \
-  ln -s /usr/bin/pplacer-linux-v1.1.alpha18-2-gcb55169/* /usr/bin/. && \
-  chmod a+x /usr/bin/pplacer-linux-v1.1.alpha18-2-gcb55169/scripts/* && \
-  ln -s /usr/bin/pplacer-linux-v1.1.alpha18-2-gcb55169/scripts/* /usr/bin/. && \
+  rm pplacer-linux-v1.1.alpha18-2-gcb55169.zip && \
+  mv pplacer-Linux-v1.1.alpha18-2-gcb55169 /usr/bin && \
+  chmod a+x /usr/bin/pplacer-Linux-v1.1.alpha18-2-gcb55169/* && \
+  ln -s /usr/bin/pplacer-Linux-v1.1.alpha18-2-gcb55169/* /usr/bin/. && \
+  chmod a+x /usr/bin/pplacer-Linux-v1.1.alpha18-2-gcb55169/scripts/* && \
+  ln -s /usr/bin/pplacer-Linux-v1.1.alpha18-2-gcb55169/scripts/* /usr/bin/. && \
   wget http://meta.microbesonline.org/fasttree/FastTreeMP && \
   chmod a+x FastTreeMP && \
   mv FastTreeMP /usr/bin/. && \
   wget https://github.com/HullUni-bioinformatics/metaBEAT/archive/master.zip && \
-  unzip metaBEAT-master.zip && \
-  rm  metaBEAT-master.zip && \
+  unzip master.zip && \
+  rm  master.zip && \
   chmod a+x metaBEAT-master/Docker/scripts/. && \
   chmod a+x metaBEAT-master/Docker/external_software/process_shortreads && \
-  mv metaBEAT-master/Docker/scripts/* /usr/bin/. && \
-  mv metaBEAT-master/Docker/external_software/process_shortreads /usr/bin/. && \
+  mv metaBEAT-master/Docker/scripts/* /usr/bin && \
+  mv metaBEAT-master/Docker/external_software/process_shortreads /usr/bin && \
   rm -r metaBEAT-master
   
   
