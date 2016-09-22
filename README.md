@@ -1,2 +1,2 @@
 # automatic-potato
-Main Dockerfile
+Dockerfile
