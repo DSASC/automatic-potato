@@ -5,7 +5,7 @@ MAINTAINER Amir Szitenberg <amir@adssc.org>
 
 RUN pip install reprophylo ete2 cloud dendropy
 RUN apt-get update
-RUN apt-get -y install xvfb build-essential gfortran wget gzip
+RUN apt-get -y install xvfb build-essential gfortran wget gzip uzip
 RUN conda install -y -c r r-ape=3.2.0 r-plyr=1.8 \
   r-data.table=1.9.6 r-foreach=1.4.2 r-gtable \
   r-reshape2 r-scales=0.3.0 r-igraph r-rjsonio
@@ -21,7 +21,7 @@ RUN Rscript -e "install.packages('maps', repos='http://cran.us.r-project.org')" 
 RUN conda create -y -n qiime1 python=2.7 qiime matplotlib=1.4.3 mock nose -c bioconda
 RUN wget \
   https://github.com/matsen/pplacer/releases/download/v1.1.alpha18/pplacer-linux-v1.1.alpha18-2-gcb55169.zip && \
-  gzip -d pplacer-linux-v1.1.alpha18-2-gcb55169.zip && \
+  unzip -d pplacer-linux-v1.1.alpha18-2-gcb55169.zip && \
   rm pplacer-linux-v1.1.alpha18-2-gcb55169.zip&& \
   mv pplacer-linux-v1.1.alpha18-2-gcb55169 /usr/bin/. && \
   chmod a+x /usr/bin/pplacer-linux-v1.1.alpha18-2-gcb55169/* && \
@@ -32,7 +32,7 @@ RUN wget \
   chmod a+x FastTreeMP && \
   mv FastTreeMP /usr/bin/. && \
   wget https://github.com/HullUni-bioinformatics/metaBEAT/archive/master.zip && \
-  gzip -d metaBEAT-master.zip && \
+  unzip -d metaBEAT-master.zip && \
   rm  metaBEAT-master.zip && \
   chmod a+x metaBEAT-master/Docker/scripts/. && \
   chmod a+x metaBEAT-master/Docker/external_software/process_shortreads && \
