@@ -38,6 +38,8 @@ RUN wget \
   chmod a+x metaBEAT-master/Docker/external_software/process_shortreads && \
   mv metaBEAT-master/Docker/scripts/* /usr/bin && \
   mv metaBEAT-master/Docker/external_software/process_shortreads /usr/bin && \
-  rm -r metaBEAT-master
+  rm -r metaBEAT-master && \
+  rm /usr/bin/python && \
+  ln -s /opt/conda/bin/python /usr/bin/python
   
   
