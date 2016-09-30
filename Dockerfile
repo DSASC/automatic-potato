@@ -10,7 +10,9 @@ ARG VERSION
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="automatic-potato" \
       org.label-schema.description="DSASC's metabarcoding and metagenomics analysis environment" \
-      org.label-schema.vcs-ref=$VCS_REF 
+      org.label-schema.vcs-ref=$VCS_REF \
+        org.label-schema.version=$VERSION \
+        org.label-schema.schema-version="v0.1-alpha"
 
 RUN apt-get update
 RUN apt-get -y install xvfb build-essential gfortran wget gzip unzip
