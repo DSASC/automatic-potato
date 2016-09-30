@@ -3,6 +3,15 @@ FROM continuumio/anaconda
 
 MAINTAINER Amir Szitenberg <amir@adssc.org>
 
+# Build-time metadata as defined at http://label-schema.org
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="automatic-potato" \
+      org.label-schema.description="DSASC's metabarcoding and metagenomics analysis environment" \
+      org.label-schema.vcs-ref=$VCS_REF 
+
 RUN apt-get update
 RUN apt-get -y install xvfb build-essential gfortran wget gzip unzip
 RUN pip install reprophylo ete2 cloud dendropy biom-format
