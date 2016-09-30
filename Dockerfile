@@ -8,18 +8,18 @@ ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
 LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.name="automatic-potato" \
-      org.label-schema.description="DSASC's metabarcoding and metagenomics analysis environment" \
-      org.label-schema.vcs-ref=$VCS_REF \
-        org.label-schema.version=$VERSION \
-        org.label-schema.schema-version="v0.1-alpha"
+  org.label-schema.name="automatic-potato" \
+  org.label-schema.description="DSASC's metabarcoding and metagenomics analysis environment" \
+  org.label-schema.vcs-ref=$VCS_REF \
+  org.label-schema.version=$VERSION \
+  org.label-schema.schema-version="v0.1-alpha"
 
 RUN apt-get update
 RUN apt-get -y install xvfb build-essential gfortran wget gzip unzip
 RUN pip install reprophylo ete2 cloud dendropy biom-format
 RUN conda install -y -c r r-ape=3.2.0 r-plyr=1.8 \
   r-data.table=1.9.6 r-foreach=1.4.2 r-gtable \
-  r-reshape2 r-scales=0.3.0 r-igraph r-rjsonio
+  r-reshape2 r-scales=0.3.0 r-igraph r-rjsonio r-irkernel
 RUN conda install -y -c bioconda bioconductor-phyloseq \
   blast mafft exonerate raxml kraken-all mothur \
   biopython=1.68 seaborn fasttree vsearch trimmomatic \
