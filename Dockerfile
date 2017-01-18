@@ -11,7 +11,8 @@ RUN conda install -y -c hcc rdp-classifier=2.2
 ENV RDP_JAR_PATH /opt/conda/bin/rdp_classifier-2.2.jar
 RUN conda install -y -c r r-ape=3.2.0 r-plyr=1.8 \
   r-data.table=1.9.6 r-foreach=1.4.2 r-gtable \
-  r-reshape2 r-scales=0.3.0 r-igraph r-rjsonio r-irkernel
+  r-reshape2 r-scales=0.3.0 r-igraph r-rjsonio r-irkernel \
+  rpy2=2.8.5
 RUN conda install -y -c bioconda bioconductor-phyloseq \
   blast mafft exonerate raxml kraken-all mothur \
   biopython=1.68 seaborn fasttree vsearch trimmomatic \
