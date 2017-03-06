@@ -43,6 +43,7 @@ RUN wget \
   mv metaBEAT-master/Docker/scripts/* /usr/bin && \
   mv metaBEAT-master/Docker/external_software/process_shortreads /usr/bin && \
   rm -r metaBEAT-master && \
+  touch /usr/bin/taxonomy.db \
   rm /usr/bin/python && \
   ln -s /opt/conda/bin/python /usr/bin/python && \
   ln -s /opt/conda/share/trimmomatic-0.36-3/trimmomatic.jar /usr/bin/trimmomatic-0.32.jar
