@@ -15,7 +15,8 @@ RUN conda install -y -c r r-ape=3.2.0 r-plyr=1.8 \
 RUN conda install -y -c bioconda bioconductor-phyloseq \
   blast mafft exonerate raxml kraken-all mothur \
   biopython=1.68 seaborn fasttree vsearch trimmomatic \
-  fastx_toolkit=0.0.14 flash hmmer fastqc trimal
+  fastx_toolkit=0.0.14 flash hmmer fastqc trimal orthofinder \
+  augustus wgs-assembler
 RUN Rscript -e "install.packages('maps', repos='http://cran.us.r-project.org')" && \
   Rscript -e "install.packages('mvtnorm', repos='http://cran.us.r-project.org')" && \
   Rscript -e "install.packages('expm', repos='http://cran.us.r-project.org')" && \
